@@ -1,15 +1,27 @@
-import { Item, ItemContent, ItemDescription, ItemHeader, ItemTitle } from "./ui/item";
+import { FaStar } from "react-icons/fa";
 
 export default function PlaceItem() {
   return (
-    <Item variant={"outline"}>
-      <ItemHeader>
-        <div className="h-40 bg-muted aspect-square rounded-sm w-full"></div>
-      </ItemHeader>
-      <ItemContent>
-        <ItemTitle>Shopping Pátio Paulista</ItemTitle>
-        <ItemDescription>à 320 metros</ItemDescription>
-      </ItemContent>
-    </Item>
+    <div className="flex gap-4 items-center">
+      {/* Imagem */}
+      <div className="h-[72px] w-[72px] bg-muted rounded-lg shrink-0"></div>
+
+      <div className="flex gap-4 w-full">
+        {/* Informações */}
+        <div className="flex flex-col w-full">
+          <p className="text-xs text-muted-foreground">0.3 km</p>
+          <p className="text-sm font-semibold">Parque da Aclimação</p>
+          <p className="text-xs text-muted-foreground">Aclimação - São Paulo</p>
+        </div>
+
+        {/* Avaliações */}
+        <div>
+          <div className="flex gap-1 items-center">
+            <span className="text-sm font-semibold">4.5</span>
+            <FaStar className="text-yellow-500" />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
