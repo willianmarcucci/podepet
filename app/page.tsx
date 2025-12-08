@@ -1,7 +1,6 @@
-import Button from "@/components/button";
+
 import CategoryList from "@/components/category-list";
 import Header from "@/components/header";
-import Input from "@/components/input";
 import PlaceList from "@/components/place-list";
 import SearchBar from "@/components/searchbar";
 
