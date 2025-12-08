@@ -32,7 +32,7 @@ export default function PlaceList() {
       </div>
 
       {/* Cards */}
-      <div className="grid gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
         {places.map((p, idx) => (
           <PlaceCard key={idx} name={p.name} neighborhood={p.neighborhood} city={p.city} dist_meters={p.dist_meters} />
         ))}
