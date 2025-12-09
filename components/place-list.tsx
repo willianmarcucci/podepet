@@ -4,8 +4,16 @@ import { fetchPlaces } from "@/app/actions";
 import PlaceCard from "./place-card";
 import { useEffect, useState } from "react";
 
+type Place = {
+  id: string | number;
+  name: string;
+  neighborhood: string;
+  city: string;
+  dist_meters: number;
+};
+
 export default function PlaceList() {
-  const [places, setPlaces] = useState([]);
+  const [places, setPlaces] = useState<Place[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
