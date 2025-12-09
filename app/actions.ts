@@ -2,12 +2,12 @@
 
 import { createClient } from "@/lib/supabase/server";
 
-export async function fetchPlaces(lat: number, long: number) {
+export async function fetchPlaces() {
   const supabase = await createClient();
 
   const { data, error } = await supabase.rpc("nearby_places", {
-    lat: lat,
-    long: long,
+    lat: -23.636962203775493,
+    long: -46.642099946030164,
   });
 
   if (error) {
