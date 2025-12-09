@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 export default function PlaceCard({name, neighborhood, city, dist_meters} : {name: string, neighborhood: string, city: string, dist_meters: number}) {
+  
   return (
     <Link href={""} className="space-y-3">
       {/* Imagem */}
@@ -16,7 +17,9 @@ export default function PlaceCard({name, neighborhood, city, dist_meters} : {nam
 
         {/* Distância */}
         <div>
-          <p className="whitespace-nowrap">{dist_meters}m</p>
+          <p className="whitespace-nowrap">{dist_meters > 500
+    ? `${(dist_meters / 1000).toFixed(1)} km`
+    : `${dist_meters.toFixed(0)} m`}</p>
         </div>
       </div>
     </Link>

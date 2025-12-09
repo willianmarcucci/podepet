@@ -12,9 +12,9 @@ export function EmblaCarousel() {
     <div className="embla rounded-2xl mx-4" ref={emblaRef}>
       <div className="embla__container aspect-3/2">
 
-      <Image className="embla_slide" width={1200} height={800} alt="Teste" src={"/banners/passeios-noturnos.png"} />
+      <Image loading="eager" className="embla_slide w-full h-full" width={1200} height={800} alt="Teste" src={"/banners/passeios-noturnos.png"} />
 
-      <Image className="embla_slide" width={1200} height={800} alt="Teste" src={"/banners/pet-shops.png"} />
+      <Image loading="eager" className="embla_slide w-full h-full" width={1200} height={800} alt="Teste" src={"/banners/pet-shops.png"} />
 
       </div>
     </div>

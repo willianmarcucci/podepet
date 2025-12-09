@@ -1,3 +1,5 @@
+"use client";
+
 import CategoryList from "@/components/category-list";
 import Header from "@/components/header";
 import PlaceList from "@/components/place-list";
