@@ -10,6 +10,7 @@ type Place = {
   neighborhood: string;
   city: string;
   dist_meters: number;
+  image_url: string;
 };
 
 export default function PlaceList() {
@@ -35,7 +36,7 @@ export default function PlaceList() {
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
         {places.map((p) => (
-          <PlaceCard key={p.id} name={p.name} neighborhood={p.neighborhood} city={p.city} dist_meters={p.dist_meters} />
+          <PlaceCard key={p.id} imageUrl={p.image_url} name={p.name} neighborhood={p.neighborhood} city={p.city} dist_meters={p.dist_meters} />
         ))}
       </div>
     </div>
