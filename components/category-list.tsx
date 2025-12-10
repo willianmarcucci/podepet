@@ -2,7 +2,7 @@ import CategoryCard from "./category-card";
 
 export default function CategoryList() {
     return (
-        <div className="grid grid-cols-2 min-[375px]:grid-cols-3 lg:grid-cols-6 gap-3 mx-4">
+        <div className="grid grid-cols-2 min-[375px]:grid-cols-3 lg:grid-cols-6 gap-3">
             <CategoryCard name="Restaurantes" iconUrl="/icons/restaurante.png" />
             <CategoryCard name="Parques" iconUrl="/icons/parque.png" />
             <CategoryCard name="Shoppings" iconUrl="/icons/shopping.png" />

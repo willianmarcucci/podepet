@@ -14,12 +14,12 @@ export default function PlaceCard({name, neighborhood, city, imageUrl, dist_mete
         {/* Nome e endereço */}
         <div className="w-full">
           <p className="font-semibold">{name}</p>
-          <p>{neighborhood} - {city}</p>
+          <p className="text-gray-500">{neighborhood} - {city}</p>
         </div>
 
         {/* Distância */}
         <div>
-          <p className="whitespace-nowrap">{dist_meters > 500 ? `${(dist_meters / 1000).toFixed(1)} km` : `${dist_meters.toFixed(0)} m`}</p>
+          <p className="whitespace-nowrap text-gray-500">{dist_meters > 500 ? `${(dist_meters / 1000).toFixed(1)} km` : `${dist_meters.toFixed(0)} m`}</p>
         </div>
       </div>
     </Link>
