@@ -10,7 +10,7 @@ export default function SearchBar() {
     const router = useRouter();
 
 
-    const handleSearch = (e) => {
+    const handleSearch = (e:any) => {
     e.preventDefault();
     if (query.trim()) {
       // Redireciona para a página de pesquisa com o parâmetro 'q'
