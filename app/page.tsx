@@ -1,27 +1,29 @@
+// app/page.tsx
+
 import CategoryList from "@/components/category-list";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import PlaceList from "@/components/place-list";
 import SearchBar from "@/components/searchbar";
 import { EmblaCarousel } from "@/components/slider";
+import { nearbyPlaces } from "@/lib/data";
 
 export default async function Home() {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  const places = await nearbyPlaces();
 
   return (
-    <div>
-      <div className="flex flex-col">
+      <div className="flex flex-col min-h-svh">
         <Header />
 
-        <main className="flex flex-col gap-4 p-4">
+        <main className="flex flex-col gap-4 p-4 flex-1">
           <SearchBar />
           <EmblaCarousel />
           <CategoryList />
-          <PlaceList />
+          <PlaceList result={places} title="Locais próximos" />
         </main>
 
         <Footer />
       </div>
-    </div>
   );
 }
