@@ -3,7 +3,7 @@
 import Link from "next/link";
 import PlaceCard from "./place-card";
 
-export default function PlaceList({result, title, className, verTodos} : {result: any, title: string, className: string, verTodos?:boolean}) {
+export default function PlaceList({result, title, className, verTodos} : {result: any, title: string, className?: string, verTodos?:boolean}) {
 
   return (
     <div className={`flex flex-col gap-6 ${className}`}>
