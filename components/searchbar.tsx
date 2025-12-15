@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search } from 'lucide-react';
 
-export default function SearchBar() {
+export default function SearchBar({className} : {className: string}) {
 
     const [query, setQuery] = useState('');
     const router = useRouter();
@@ -20,7 +20,7 @@ export default function SearchBar() {
 
 
   return (
-    <form onSubmit={handleSearch} className="flex gap-3">
+    <form onSubmit={handleSearch} className={`flex gap-3 ${className}`}>
       <input
         type="text"
         placeholder="Buscar por nome, rua ou bairro..."

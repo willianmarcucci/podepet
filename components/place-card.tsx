@@ -1,25 +1,44 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function PlaceCard({name, neighborhood, city, imageUrl, dist_meters} : {name: string, neighborhood: string, city: string, imageUrl: string, dist_meters: number}) {
-  
+export default function PlaceCard({
+  name,
+  neighborhood,
+  city,
+  imageUrl,
+  dist_meters,
+}: {
+  name: string;
+  neighborhood: string;
+  city: string;
+  imageUrl: string;
+  dist_meters: number;
+}) {
   return (
     <Link href={""} className="space-y-3">
-      {/* Imagem */}
-      <Image style={{objectFit: "cover"}} src={imageUrl} alt={name} width={600} height={600} className="h-60 w-full bg-gray-300 rounded-2xl" />
+      <Image
+        style={{ objectFit: "cover" }}
+        src={imageUrl}
+        alt={name}
+        width={900}
+        height={600}
+        className="w-full aspect-3/2 rounded-2xl"
+      />
 
-      {/* Informações */}
-      <div className="flex gap-3 px-3">
-        
-        {/* Nome e endereço */}
-        <div className="w-full">
-          <p className="font-semibold">{name}</p>
-          <p className="text-gray-500">{neighborhood} - {city}</p>
+      <div className="flex gap-3">
+        <div className="flex-1 w-full">
+          <p className="font-medium">{name}</p>
+          <p className="text-sm text-gray-500">
+            {neighborhood} - {city}
+          </p>
         </div>
 
-        {/* Distância */}
-        <div>
-          <p className="whitespace-nowrap text-gray-500">{dist_meters > 500 ? `${(dist_meters / 1000).toFixed(1)} km` : `${dist_meters.toFixed(0)} m`}</p>
+        <div className="shrink-0">
+          <p className="text-sm text-gray-500">
+            {dist_meters > 500
+              ? `${(dist_meters / 1000).toFixed(1)} km`
+              : `${dist_meters.toFixed(0)} m`}
+          </p>
         </div>
       </div>
     </Link>
