@@ -19,7 +19,7 @@ export default async function Home() {
         <main className="max-w-6xl grid self-center w-full grid-cols-2 gap-y-8 md:gap-y-10 gap-x-6 px-4 py-8 md:px-12 md:py-12">
           
           {/* Barra de busca */}
-          <SearchBar className="col-span-2" />
+          <SearchBar className={"col-span-2"} />
 
           {/* Banner e categorias */}
           <Slider className="col-span-2 lg:col-span-1" />
