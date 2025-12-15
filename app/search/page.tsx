@@ -2,9 +2,8 @@
 
 import Footer from "@/components/footer";
 import Header from "@/components/header";
-import PlaceList from "@/components/place-list";
+import NearbyPlaces from "@/components/nearby-places";
 import SearchBar from "@/components/searchbar";
-import { searchNearbyPlaces } from "@/lib/data";
 
 type SearchParams = { q?: string };
 
@@ -16,18 +15,17 @@ export default async function SearchPage({
   const params = await searchParams;
   const q = params.q ?? "";
 
-  const places = await searchNearbyPlaces(q);
-
   return (
-      <div className="flex flex-col min-h-svh">
-        <Header />
+    <div className="flex flex-col min-h-svh">
+      <Header />
 
-        <main className="flex flex-col gap-4 p-4 flex-1">
-          <SearchBar />
-          <PlaceList result={places} title={`Resultados para ${q}`} />
-        </main>
+      <main className="max-w-6xl grid self-center w-full grid-cols-2 gap-y-8 md:gap-y-10 gap-x-6 px-4 py-8 md:px-12 md:py-12">
+        <SearchBar className="col-span-2" defaultValue={q} />
 
-        <Footer />
-      </div>
+        <NearbyPlaces searchTerm={q} className="col-span-2" />
+      </main>
+
+      <Footer />
+    </div>
   );
 }

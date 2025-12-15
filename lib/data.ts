@@ -1,34 +1,41 @@
-import { createClient } from "./supabase/server";
+// lib/data.ts
 
-export async function nearbyPlaces() {
+import { createClient } from "./supabase/server";
+import { Place } from "@/types";
+
+export async function nearbyPlaces(lat: number, long: number): Promise<Place[]> {
   const supabase = await createClient();
 
   const { data, error } = await supabase.rpc("nearby_places", {
-    lat: -23.57758341659117,
-    long: -46.62779125260631,
+    lat,
+    long,
   });
 
   if (error) {
-    console.log(error);
+    console.error("Error fetching nearby places:", error);
     return [];
   }
 
-  return data;
+  return data ?? [];
 }
 
-export async function searchNearbyPlaces(searchTerm: string) {
+export async function searchNearbyPlaces(
+  searchTerm: string,
+  lat: number,
+  long: number
+): Promise<Place[]> {
   const supabase = await createClient();
 
   const { data, error } = await supabase.rpc("search_nearby_places", {
-    lat: -23.57758341659117,
-    long: -46.62779125260631,
+    lat,
+    long,
     search_term: searchTerm,
   });
 
   if (error) {
-    console.log(error);
+    console.error("Error searching places:", error);
     return [];
   }
 
-  return data;
+  return data ?? [];
 }

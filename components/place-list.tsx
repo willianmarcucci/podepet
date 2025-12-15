@@ -1,24 +1,52 @@
-"use client"
+// components/place-list.tsx
 
 import Link from "next/link";
 import PlaceCard from "./place-card";
+import { Place } from "@/types";
 
-export default function PlaceList({result, title, className, verTodos} : {result: any, title: string, className?: string, verTodos?:boolean}) {
+type PlaceListProps = {
+  places: Place[];
+  title: string;
+  className?: string;
+  verTodos?: boolean;
+};
 
+export default function PlaceList({
+  places,
+  title,
+  className,
+  verTodos,
+}: PlaceListProps) {
   return (
-    <div className={`flex flex-col gap-6 ${className}`}>
-      {/* Título sessão */}
+    <section className={`flex flex-col gap-6 ${className}`}>
       <div className="flex gap-3 justify-between items-baseline">
-        <p className="text-xl font-semibold">{title}</p>
-        {verTodos && <Link href={""} className="font-semibold">Ver todos</Link>}
+        <h2 className="text-xl font-semibold">{title}</h2>
+        {verTodos && (
+          <Link href="/search" className="font-semibold hover:underline">
+            Ver todos
+          </Link>
+        )}
       </div>
 
-      {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-6">
-        {result.map((p: any) => (
-          <PlaceCard key={p.id} imageUrl={p.image_url} name={p.name} neighborhood={p.neighborhood} city={p.city} dist_meters={p.dist_meters} />
-        ))}
-      </div>
-    </div>
+      {places.length === 0 ? (
+        <p className="text-gray-500 text-center py-12">
+          Nenhum lugar encontrado.
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {places.map((place) => (
+            <PlaceCard
+              key={place.id}
+              id={place.id}
+              name={place.name}
+              neighborhood={place.neighborhood}
+              city={place.city}
+              imageUrl={place.image_url}
+              dist_meters={place.dist_meters}
+            />
+          ))}
+        </div>
+      )}
+    </section>
   );
 }
